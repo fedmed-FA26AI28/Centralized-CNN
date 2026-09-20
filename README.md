@@ -1,12 +1,6 @@
 # Centralized CNN Baseline - BloodMNIST
 
-A PyTorch implementation of a Centralized Convolutional Neural Network (CNN) trained and evaluated on the **BloodMNIST** dataset (from the [MedMNIST v2](https://medmnist.com/) biomedical benchmark).
-
-This repository provides both a **modular command-line interface** for running headless training in the terminal and an **interactive Jupyter Notebook** with end-to-end visual analytics (dataset inspection, learning curves, hardware monitoring, and confusion matrix).
-
----
-
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 Central/
@@ -23,7 +17,7 @@ Central/
 
 ---
 
-## ⚙️ Environment & Prerequisites
+## Environment & Prerequisites
 
 This project is tested with **Python 3.10** and **PyTorch 2.x** with CUDA GPU acceleration.
 
@@ -34,24 +28,7 @@ Install dependencies using:
 pip install -r requirements.txt
 ```
 
-### Using the Dedicated Virtual Environment
-
-If using the workspace environment (`D:\FPT\KLTN\FED\.venv`):
-
-**In PowerShell:**
-```powershell
-# Activate the virtual environment
-& "D:\FPT\KLTN\FED\.venv\Scripts\Activate.ps1"
-```
-
-Or execute directly with the virtual environment Python binary:
-```powershell
-& "D:\FPT\KLTN\FED\.venv\Scripts\python.exe" train.py
-```
-
----
-
-## 🚀 Running via Terminal (`train.py`)
+## Running via Terminal (`train.py`)
 
 ### 1. Default Run
 Trains for 30 epochs with batch size 128 on CUDA (if available):
@@ -84,7 +61,7 @@ python train.py --epochs 20 --batch_size 64 --lr 0.0005 --num_workers 2 --device
 
 ---
 
-## 📊 Interactive Visualization Notebook (`nb.ipynb`)
+## Interactive Visualization Notebook (`nb.ipynb`)
 
 [`nb.ipynb`](nb.ipynb) contains every phase of the pipeline split into standalone cells:
 1. **Dataset Preview**: Visualizes 8 sample BloodMNIST images with denormalization and class labels.
@@ -96,20 +73,10 @@ python train.py --epochs 20 --batch_size 64 --lr 0.0005 --num_workers 2 --device
 
 ---
 
-## 💾 Output Artifacts
+## Output Artifacts
 
 Upon completing training, the pipeline generates:
 1. **`bloodmnist_cnn.pt`**: PyTorch checkpoint of the model weights that achieved the highest validation F1 score.
 2. **`bloodmnist_training_metrics.csv`**: Detailed per-epoch breakdown (`epoch`, `train_loss`, `train_acc`, `train_f1`, `val_loss`, `val_acc`, `val_f1`, `epoch_time`).
 3. **`bloodmnist_resource_metrics.csv`**: Hardware telemetry per epoch (`avg_cpu_percent`, `max_cpu_percent`, `avg_ram_mb`, `avg_gpu_percent`, `avg_gpu_memory_mb`).
 4. **`bloodmnist_final_results.csv`**: Comprehensive one-row summary of the entire run including test set metrics and overall resource consumption.
-
----
-
-## 💡 Troubleshooting
-
-### VS Code "Could not register service worker / InvalidStateError"
-If opening `.ipynb` files in VS Code produces a webview service worker error:
-1. Press **`Ctrl + Shift + P`** in VS Code.
-2. Select **`Developer: Reload Window`**.
-3. Re-open the notebook.
