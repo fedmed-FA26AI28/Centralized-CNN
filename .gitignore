@@ -61,6 +61,3 @@ Thumbs.db
 desktop.ini
 .DS_Store
 
-# Agent internal scratch and memories
-agent_gen/
-memories/
